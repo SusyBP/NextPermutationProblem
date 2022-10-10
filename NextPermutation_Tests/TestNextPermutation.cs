@@ -40,8 +40,7 @@ namespace NextPermutation_Tests
             var action = () => np.GetNextPermutation(nums);
 
             //Assert
-            ArgumentException exception = Assert.Throws<ArgumentException>(action);
-            Assert.Equal("expected error message here", exception.Message);
+            Assert.Throws<ArgumentException>(action);
         }
 
         [Theory]
