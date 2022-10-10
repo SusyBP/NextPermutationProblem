@@ -11,16 +11,17 @@ namespace NextPermutation_Tests
         [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 3, 2 })]
         [InlineData(new int[] { 3, 2, 1 }, new int[] { 1, 2, 3 })]
         [InlineData(new int[] { 1, 1, 5 }, new int[] { 1, 5, 1 })]
+        [InlineData(new int[] { 10 , 9, 8, 7, 6, 5, 4, 3, 2, 1 }, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
         public void NextPermutation_ValidateExpectedResults(int[] nums, int[] expectedResult)
         {
             //Arrange
             var np = new NextPermutation.NextPermutation();
 
             //Act
-            var result = np.GetNextPermutation(nums);
+            np.GetNextPermutation(nums);
 
             //Assert
-            Assert.Equal(expectedResult, result);
+            Assert.Equal(expectedResult, nums);
         }
 
         [Theory]
@@ -44,17 +45,17 @@ namespace NextPermutation_Tests
         }
 
         [Theory]
-        [InlineData(new int[] { 1 })]
-        public void NextPermutation_InputArrayWithOneElement_ReturnsSameArray(int[] nums)
+        [InlineData(new int[] { 1 }, new int[] { 1 })]
+        public void NextPermutation_InputArrayWithOneElement_ReturnsSameArray(int[] nums, int[] expectedResult)
         {
             //Arrange
             var np = new NextPermutation.NextPermutation();
 
             //Act
-            var result = np.GetNextPermutation(nums);
+            np.GetNextPermutation(nums);
 
             //Assert
-            Assert.Equal(nums, result);
+            Assert.Equal(nums, expectedResult);
         }
 
 
